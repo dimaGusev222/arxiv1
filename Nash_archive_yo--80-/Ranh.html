@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>НИУ РАНХиГС 80 лет| Нижегородский институт управления</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <img src="images/ranhigs_no_bg.png" alt="РАНХиГС" class="logo-img">
+        </div>
+        <div class="header-content">
+            <h1>🎓 80 лет НИУ РАНХиГС</h1>
+            <p>Нижегородский институт управления — традиции качества и современность</p>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <button class="nav-btn" data-section="story">📜 История</button>
+    <button class="nav-btn" data-section="teachers">🎤 Интервью</button>
+    <button class="nav-btn" data-section="quiz">🧠 Викторина</button>
+</nav>
+
+<main>
+    <section id="story" class="active">
+        <h2>История НИУ РАНХиГС: от истоков к лидерству</h2>
+        <div class="story-text">
+            <p>История создания и развития Нижегородского института управления начинается в послевоенные годы и насчитывает несколько этапов, прошедших через значительные изменения и преобразования. Первое значимое образование в этом направлении было создано в 1943 году — Горьковская партийная школа при Областном комитете ВКП(б). Это учебное заведение было задумано для подготовки партийных кадров и повышения квалификации.</p>
+            <p><strong>2 августа 1946 года</strong> школа преобразована в Горьковскую областную партийную школу, получив статус областного учебного учреждения. В 1952 году — Горьковская высшая партийная школа, расширение программ.</p>
+        </div>
+        
+        <div class="img-grid">
+            <figure class="img-card">
+                <img src="images/kolek.jpg" alt="Историческое здание партийной школы">
+                <figcaption>⭐ Горьковская партийная школа, 1940-е гг.</figcaption>
+            </figure>
+            <figure class="img-card">
+                <img src="images/star.jpg" alt="Студенты и преподаватели в 1957 году">
+                <figcaption>📸 Обучение управленческим кадрам, 1957 г.</figcaption>
+            </figure>
+        </div>
+
+        <div class="story-text">
+            <p>В 1956 году школа получила статус межобластной — Горьковская межобластная высшая партийная школа. Здесь готовили кадры для семи областей, четырёх автономных республик РСФСР и союзных республик СССР. К 1957 году подготовлено более 1500 выпускников.</p>
+            <h3>История современности</h3>
+            <p>В 1991 году — Нижегородский социально-политический институт (НСПИ), затем Волго-Вятский кадровый центр, а с 1995 года — Волго-Вятская академия государственной службы (ВВАГС). 20 сентября 2010 года ВВАГС вошла в состав РАНХиГС при Президенте РФ, получив имя <strong>Нижегородский институт управления</strong>.</p>
+            <p>Сегодня институт — ведущая площадка подготовки управленцев, экономистов и юристов, сочетая богатое наследие с инновационными образовательными стандартами.</p>
+        </div>
+
+        <div class="img-grid">
+            <figure class="img-card">
+                <img src="images/sey.jpg" alt="Современное здание НИУ РАНХиГС">
+                <figcaption>🏛 Современный кампус Нижегородского института управления</figcaption>
+            </figure>
+            <figure class="img-card">
+                <img src="images/nov.jpg" alt="Торжественное вручение дипломов">
+                <figcaption>🎓 Институт</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="teachers">
+        <h2>🎤 Интервью с преподавателями</h2>
+        <div class="interviews-grid">
+            <div class="interview-card" data-interview="1">
+                <div class="interview-preview">
+                    <img src="images/photo_ivanova.jpg" alt="Иванова Елена Вячеславовна">
+                    <h3>Иванова Елена Вячеславовна</h3>
+                    <div class="teacher-position">Преподаватель высшей категории</div>
+                </div>
+            </div>
+            
+            <div class="interview-card" data-interview="2">
+                <div class="interview-preview">
+                    <img src="images/photo_latina.jpg" alt="Латина Ольга Александровна">
+                    <h3>Латина Ольга Александровна</h3>
+                    <div class="teacher-position">Председатель цифровой комиссии</div>
+                </div>
+            </div>
+            
+            <div class="interview-card" data-interview="3">
+                <div class="interview-preview">
+                    <img src="images/photo_ivanov.jpg" alt="Иванов Сергей Викторович">
+                    <h3>Иванов Сергей Викторович</h3>
+                    <div class="teacher-position">Директор колледжа</div>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; text-align: center; font-style: italic; color: #6e3e2c;">⭐ Нажмите на фото преподавателя, чтобы открыть интервью</p>
+    </section>
+
+    <section id="quiz">
+        <h2>📚 Викторина: проверь свои знания об истории института</h2>
+        <div class="quiz-container">
+            <div id="quizQuestions"></div>
+            <div class="quiz-score" id="quizScoreBlock">
+                🧠 Ваш результат: <span id="scoreValue">0</span> / <span id="totalQuestionsCount">0</span> правильных ответов
+            </div>
+            <button id="resetQuizBtn">🔄 Сбросить викторину</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2026 80 лет НИУ РАНХиГС — Нижегородский институт управления.
+</footer>
+
+<!-- Плавающий счетчик баллов -->
+<div class="floating-score" id="floatingScore">
+    <div class="score-icon">⭐</div>
+    <div class="score-info">
+        <div class="score-label">БАЛЛЫ</div>
+        <div class="score-value" id="floatingScoreValue">0</div>
+    </div>
+</div>
+
+<div class="expand-overlay" id="expandOverlay"></div>
+<div class="interview-expand" id="interviewExpand">
+    <div class="interview-expand-content">
+        <button class="close-expand-btn" id="closeExpandBtn">✕</button>
+        <div id="expandContent"></div>
+    </div>
+</div>
+
+<script>
+    function showSection(sectionId) {
+        const sections = document.querySelectorAll('main section');
+        sections.forEach(sec => {
+            sec.classList.remove('active');
+        });
+        const activeSection = document.getElementById(sectionId);
+        if (activeSection) activeSection.classList.add('active');
+        sessionStorage.setItem('activeTab', sectionId);
+        
+        const floatingScore = document.getElementById('floatingScore');
+        if (sectionId === 'quiz') {
+            floatingScore.style.display = 'flex';
+        } else {
+            floatingScore.style.display = 'none';
+        }
+    }
+
+    const navBtns = document.querySelectorAll('.nav-btn');
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const section = btn.getAttribute('data-section');
+            if (section) showSection(section);
+        });
+    });
+
+    const savedTab = sessionStorage.getItem('activeTab');
+    if (savedTab && document.getElementById(savedTab)) {
+        showSection(savedTab);
+    } else {
+        showSection('story');
+    }
+
+    const interviewsData = {
+        1: {
+            name: "Иванова Елена Вячеславовна",
+            position: "Преподаватель высшей категории НИУ РАНХиГС",
+            description: [
+                "📚 Кандидат педагогических наук. Стаж работы более 15 лет.",
+                "🏆 Автор более 50 научных работ, лауреат премии \"Лучший преподаватель года\".",
+                "💬 Цитата: \"Образование — это не просто передача знаний, это воспитание личности, способной мыслить критически и принимать ответственные решения.\""
+            ],
+            videoSrc: "video/ivanova_full.MOV",
+            videoType: "video/quicktime"
+        },
+        2: {
+            name: "Латина Ольга Александровна",
+            position: "Председатель цифровой комиссии информационных дисциплин модулей",
+            description: [
+                "💻 Преподаватель высшей категории НИУ РАНХиГС.",
+                "🚀 Разработчик уникальной методики преподавания цифровых дисциплин, руководитель инновационных проектов.",
+                "💬 Цитата: \"Цифровые технологии открывают безграничные возможности для обучения. Главное — научиться правильно их использовать.\""
+            ],
+            videoSrc: "video/latina_full.MOV",
+            videoType: "video/quicktime"
+        },
+        3: {
+            name: "Иванов Сергей Викторович",
+            position: "Директор колледжа института-филиала",
+            description: [
+                "🎓 Член Ученого совета института-филиала.",
+                "🏅 Почетный работник среднего профессионального образования РФ. Инициатор создания современных образовательных программ.",
+                "💬 Цитата: \"Наша задача — подготовить специалистов, которые будут востребованы на рынке труда и смогут реализовать свой потенциал.\""
+            ],
+            videoSrc: "video/dir.MOV",
+            videoType: "video/mp4"
+        }
+    };
+
+    const expandWindow = document.getElementById('interviewExpand');
+    const expandOverlay = document.getElementById('expandOverlay');
+    const expandContent = document.getElementById('expandContent');
+    const closeExpandBtn = document.getElementById('closeExpandBtn');
+    let currentOpenInterview = null;
+
+    function openInterview(interviewId) {
+        const data = interviewsData[interviewId];
+        if (!data) return;
+        const descriptionHtml = data.description.map(text => `<p>${text}</p>`).join('');
+        expandContent.innerHTML = `
+            <h3>${data.name}</h3>
+            <div class="interview-expand-description">
+                <p><strong>${data.position}</strong></p>
+                ${descriptionHtml}
+            </div>
+            <div class="video-expand-wrapper">
+                <video controls>
+                    <source src="${data.videoSrc}" type="${data.videoType}">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            </div>
+        `;
+        expandWindow.classList.add('active');
+        expandOverlay.classList.add('active');
+        document.body.classList.add('modal-open');
+        currentOpenInterview = interviewId;
+    }
+
+    function closeInterview() {
+        expandWindow.classList.remove('active');
+        expandOverlay.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        currentOpenInterview = null;
+        const video = expandContent.querySelector('video');
+        if (video) video.pause();
+    }
+
+    function initInterviews() {
+        const interviewCards = document.querySelectorAll('.interview-card');
+        interviewCards.forEach(card => {
+            const interviewId = card.getAttribute('data-interview');
+            card.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (currentOpenInterview === interviewId && expandWindow.classList.contains('active')) {
+                    closeInterview();
+                } else {
+                    openInterview(interviewId);
+                }
+            });
+        });
+        closeExpandBtn.addEventListener('click', closeInterview);
+        expandOverlay.addEventListener('click', closeInterview);
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && expandWindow.classList.contains('active')) closeInterview();
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        initInterviews();
+    });
+
+    const quizData = [
+        {
+            question: "В каком году открылся факультет СПО?",
+            options: ["2003 год", "2 августа 1946 года", "1991 год", "2015 год"],
+            correct: "2003 год",
+            explanation: "Факультет среднего профессионального образования (СПО) был открыт в 2003 году для подготовки квалифицированных специалистов среднего звена.",
+            explanationVideo: "video/спо.mp4",
+            videoType: "video/mp4",
+            teacherName: "Латина Ольга Александровна",
+            correctGif: "images/spo_happy.gif",
+            wrongGif: "images/spo_sad.gif"
+        },
+        {
+            question: "Какое название носило учебное заведение в 1946 году?",
+            options: ["Высшая партийная школа", "Институт народного администрирования СССР", "Нижегородский социально-политический институт", "Волго-Вятская академия госслужбы"],
+            correct: "Высшая партийная школа",
+            explanation: "2 августа 1946 года школа была преобразована в Горьковскую областную партийную школу, получив статус областного учебного учреждения.",
+            explanationVideo: "video/партийная_школа.MP4",
+            videoType: "video/mp4",
+            teacherName: "Иванова Елена Вячеславовна",
+            correctGif: "images/party_happy.gif",
+            wrongGif: "images/party_sad.gif"
+        },
+        {
+            question: "Какая дата считается основанием действующего Нижегородского института управления РАНХиГС?",
+            options: ["2010-2011", "2010", "2012", "2005"],
+            correct: "2010-2011",
+            explanation: "20 сентября 2010 года Волго-Вятская академия государственной службы (ВВАГС) вошла в состав РАНХиГС при Президенте РФ, получив имя Нижегородский институт управления.",
+            explanationVideo: "video/дата ранхигс.MOV",
+            videoType: "video/mp4",
+            teacherName: "Латина Ольга Александровна",
+            correctGif: "images/date_happy.gif",
+            wrongGif: "images/date_sad.gif"
+        }
+    ];
+
+    let userAnswers = new Array(quizData.length).fill(null);
+    let userAnswered = new Array(quizData.length).fill(false);
+    let totalPoints = 0;
+    let quizRendered = false;
+
+    function updateFloatingScore() {
+        const floatingScoreValue = document.getElementById('floatingScoreValue');
+        if (floatingScoreValue) {
+            floatingScoreValue.textContent = totalPoints;
+        }
+    }
+
+    function renderQuiz() {
+        const container = document.getElementById('quizQuestions');
+        if (!container) return;
+        container.innerHTML = '';
+
+        quizData.forEach((item, idx) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'quiz-question';
+            questionDiv.setAttribute('data-qidx', idx);
+            
+            const questionText = document.createElement('p');
+            questionText.innerHTML = `<strong>${idx + 1}. ${item.question}</strong>`;
+            questionDiv.appendChild(questionText);
+            
+            const btnsDiv = document.createElement('div');
+            btnsDiv.className = 'quiz-buttons';
+            
+            item.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-btn';
+                btn.textContent = opt;
+                btn.disabled = userAnswered[idx];
+                if (userAnswers[idx] === opt) {
+                    btn.style.background = userAnswers[idx] === item.correct ? '#1f7840' : '#bc4e2c';
+                    btn.style.color = 'white';
+                }
+                btn.addEventListener('click', (e) => {
+                    if (userAnswered[idx]) return;
+                    
+                    userAnswers[idx] = opt;
+                    userAnswered[idx] = true;
+                    const isCorrect = (opt === item.correct);
+                    
+                    if (isCorrect) {
+                        totalPoints += 2;
+                    }
+                    
+                    updateActiveStyles(questionDiv, opt, isCorrect);
+                    updateFeedback(questionDiv, idx, isCorrect);
+                    updateTotalScore();
+                    updateFloatingScore();
+                    
+                    const allBtns = questionDiv.querySelectorAll('.quiz-btn');
+                    allBtns.forEach(button => {
+                        button.disabled = true;
+                    });
+                });
+                btnsDiv.appendChild(btn);
+            });
+            
+            questionDiv.appendChild(btnsDiv);
+            
+            const feedbackDiv = document.createElement('div');
+            feedbackDiv.className = 'quiz-feedback';
+            feedbackDiv.id = `feedback-${idx}`;
+            questionDiv.appendChild(feedbackDiv);
+            
+            const explanationDiv = document.createElement('div');
+            explanationDiv.className = 'quiz-explanation';
+            explanationDiv.id = `explanation-${idx}`;
+            questionDiv.appendChild(explanationDiv);
+            
+            container.appendChild(questionDiv);
+        });
+        
+        updateTotalScore();
+        updateFloatingScore();
+    }
+    
+    function updateActiveStyles(questionDiv, selectedOpt, isCorrect) {
+        const btns = questionDiv.querySelectorAll('.quiz-btn');
+        btns.forEach(btn => {
+            if (btn.textContent === selectedOpt) {
+                if (isCorrect) {
+                    btn.style.background = '#1f7840';
+                    btn.style.color = 'white';
+                } else {
+                    btn.style.background = '#bc4e2c';
+                    btn.style.color = 'white';
+                }
+            } else if (btn.textContent === quizData[questionDiv.getAttribute('data-qidx')].correct) {
+                btn.style.background = '#1f7840';
+                btn.style.color = 'white';
+            } else {
+                btn.style.opacity = '0.6';
+            }
+        });
+    }
+    
+    function updateFeedback(questionDiv, idx, isCorrect) {
+        const feedbackDiv = document.getElementById(`feedback-${idx}`);
+        const explanationDiv = document.getElementById(`explanation-${idx}`);
+        if (!feedbackDiv) return;
+        
+        const item = quizData[idx];
+        
+        if (isCorrect) {
+            feedbackDiv.innerHTML = '✅ Верно! +2 балла!';
+            feedbackDiv.style.color = '#1f7840';
+            feedbackDiv.style.fontWeight = '700';
+        } else {
+            feedbackDiv.innerHTML = `❌ Неправильно. Правильный ответ: ${item.correct}. +0 баллов`;
+            feedbackDiv.style.color = '#bc4e2c';
+            feedbackDiv.style.fontWeight = '700';
+        }
+        
+        const reactionGif = isCorrect ? item.correctGif : item.wrongGif;
+        
+        explanationDiv.innerHTML = `
+            <div class="explanation-container">
+                <div class="teacher-reaction ${isCorrect ? 'happy' : 'angry'}">
+                    <div class="teacher-gif">
+                        <img src="${reactionGif}" alt="${isCorrect ? 'Радостный преподаватель' : 'Грустный преподаватель'}" class="reaction-gif">
+                    </div>
+                    <div class="teacher-message">
+                        ${isCorrect ? 'Отлично! Вы правильно ответили! +2 балла' : 'К сожалению, это неправильный ответ. Давайте разберемся!'}
+                    </div>
+                </div>
+                <div class="explanation-video">
+                    <video controls autoplay>
+                        <source src="${item.explanationVideo}" type="${item.videoType}">
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                    <div class="video-caption">
+                        <strong>${item.teacherName}</strong> объясняет правильный ответ
+                    </div>
+                </div>
+                <div class="explanation-text">
+                    <p><strong>📖 Объяснение:</strong> ${item.explanation}</p>
+                </div>
+            </div>
+        `;
+        
+        explanationDiv.style.display = 'block';
+        explanationDiv.style.animation = 'slideDown 0.5s ease';
+    }
+    
+    function updateTotalScore() {
+        let correctCount = 0;
+        totalPoints = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+                totalPoints += 2;
+            }
+        }
+        const scoreSpan = document.getElementById('scoreValue');
+        const totalSpan = document.getElementById('totalQuestionsCount');
+        if (scoreSpan) scoreSpan.textContent = correctCount;
+        if (totalSpan) totalSpan.textContent = quizData.length;
+        
+        const scoreBlock = document.getElementById('quizScoreBlock');
+        if (correctCount === quizData.length && quizData.length > 0 && userAnswers.every(a => a !== null)) {
+            if (!scoreBlock.querySelector('.perfect-badge')) {
+                const perfectMsg = document.createElement('div');
+                perfectMsg.className = 'perfect-badge';
+                perfectMsg.style.marginTop = '8px';
+                perfectMsg.style.fontSize = '0.9rem';
+                perfectMsg.style.fontWeight = '500';
+                perfectMsg.style.color = '#aa1805';
+                perfectMsg.innerHTML = `🏆 Поздравляем! Вы набрали ${totalPoints} баллов из ${quizData.length * 2} возможных!`;
+                scoreBlock.appendChild(perfectMsg);
+            }
+        } else {
+            const existing = scoreBlock.querySelector('.perfect-badge');
+            if (existing) existing.remove();
+        }
+        
+        updateFloatingScore();
+    }
+    
+    function resetQuiz() {
+        userAnswers = new Array(quizData.length).fill(null);
+        userAnswered = new Array(quizData.length).fill(false);
+        totalPoints = 0;
+        const container = document.getElementById('quizQuestions');
+        if (container) {
+            renderQuiz();
+        }
+        updateTotalScore();
+        updateFloatingScore();
+        const scoreSpan = document.getElementById('scoreValue');
+        if (scoreSpan) scoreSpan.textContent = '0';
+    }
+    
+    function initQuiz() {
+        if (!quizRendered) {
+            renderQuiz();
+            quizRendered = true;
+        }
+        const resetBtn = document.getElementById('resetQuizBtn');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', resetQuiz);
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        initQuiz();
+        
+        const observer = new MutationObserver(() => {
+            const quizSection = document.getElementById('quiz');
+            if (quizSection && quizSection.classList.contains('active') && !quizRendered) {
+                initQuiz();
+            }
+        });
+        observer.observe(document.getElementById('quiz'), { attributes: true, attributeFilter: ['class'] });
+        if (document.getElementById('quiz').classList.contains('active')) initQuiz();
+        
+        const floatingScore = document.getElementById('floatingScore');
+        if (!document.getElementById('quiz').classList.contains('active')) {
+            floatingScore.style.display = 'none';
+        }
+    });
+</script>
+</body>
+</html>

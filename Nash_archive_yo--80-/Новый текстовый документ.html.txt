@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>80 лет НИУ РАНХиГС | Нижегородский институт управления</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(145deg, #f9f7f5 0%, #f0ede9 100%);
+            color: #1e1a17;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        
+        header {
+            background: linear-gradient(135deg, #8b1a0a 0%, #5f0f03 100%);
+            color: white;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            letter-spacing: -0.02em;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+            font-weight: 400;
+        }
+
+    
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            background: #6b1a0e;
+            backdrop-filter: blur(2px);
+            padding: 0.5rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn {
+            background: transparent;
+            border: none;
+            padding: 0.85rem 2rem;
+            cursor: pointer;
+            color: #fff3ef;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 48px;
+            transition: all 0.25s ease;
+            font-family: inherit;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .nav-btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Основные секции */
+        main {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.5rem 5rem 1.5rem;
+        }
+
+        section {
+            display: none;
+            animation: fadeIn 0.35s ease forwards;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 245, 235, 0.6);
+        }
+
+        section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+
+        h2 {
+            font-size: 2rem;
+            border-left: 6px solid #aa1805;
+            padding-left: 1.2rem;
+            margin-bottom: 1.8rem;
+            color: #2c241f;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #5f2a1c;
+            font-weight: 600;
+        }
+
+        .img-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+            justify-content: center;
+        }
+
+        .img-card {
+            background: white;
+            border-radius: 1.5rem;
+            overflow: hidden;
+
+            transition: transform 0.2s, box-shadow 0.2s;
+            max-width: 360px;
+            width: 100%;
+        }
+
+        .img-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 24px 30px -12px rgba(0, 0, 0, 0.2);
+        }
+
+        .img-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s;
+        }
+
+        .img-card figcaption {
+            padding: 0.8rem 1rem;
+            font-weight: 500;
+            background: #fffaf5;
+            color: #4a2a1e;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        /* Педагоги – современная сетка */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .teacher-card {
+            background: white;
+            border-radius: 1.8rem;
+            overflow: hidden;
+            transition: all 0.2s;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0e2d8;
+        }
+
+        .teacher-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 18px 28px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        .teacher-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: #e9dfd7;
+        }
+
+        .teacher-info {
+            padding: 1.2rem 1rem 1.5rem;
+            text-align: center;
+        }
+
+        .teacher-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c1a12;
+        }
+
+        .teacher-position {
+            color: #aa1805;
+            font-weight: 500;
+            margin: 0.4rem 0 0.2rem;
+        }
+
+        .teacher-desc {
+            color: #4f3e35;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Викторина — современный дизайн */
+        .quiz-container {
+            background: #fffcf9;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .quiz-question {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eedbcb;
+            padding-bottom: 1.5rem;
+        }
+
+        .quiz-question:last-child {
+            border-bottom: none;
+        }
+
+        .quiz-question p {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2c241f;
+        }
+
+        .quiz-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .quiz-btn {
+            background: #f0e4db;
+            border: none;
+            padding: 0.7rem 1.6rem;
+            border-radius: 60px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: #3b2a21;
+            font-family: inherit;
+        }
+
+        .quiz-btn:hover {
+            background: #ddcbbc;
+            transform: translateY(-2px);
+        }
+
+        .quiz-feedback {
+            margin-top: 0.75rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding-left: 0.5rem;
+        }
+
+        .quiz-score {
+            margin-top: 1.8rem;
+            background: #e9ddcf;
+            border-radius: 2rem;
+            padding: 0.8rem 1.5rem;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #3a271e;
+        }
+
+        /* футер */
+        footer {
+            background: #2f1d15;
+            color: #e9cfbf;
+            text-align: center;
+            padding: 1.4rem;
+            font-size: 0.9rem;
+            border-top: 1px solid #ffd9c4;
+            width: 100%;
+        }
+
+        /* адаптив */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.7rem;
+            }
+            .nav-btn {
+ padding: 0.5rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+            h2 {
+                font-size: 1.7rem;
+            }
+            .teachers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* исправление для списка */
+        ul {
+            list-style: none;
+        }
+        .story-text {
+            font-size: 1.02rem;
+            line-height: 1.55;
+            color: #2d241f;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎓 80 лет НИУ РАНХиГС</h1>
+    <p>Нижегородский институт управления — традиции качества и современность</p>
+</header>
+
+<nav>
+    <button class="nav-btn" data-section="story">📜 История</button>
+    <button class="nav-btn" data-section="teachers">👩‍🏫 Педагоги</button>
+    <button class="nav-btn" data-section="quiz">🧠 Викторина</button>
+</nav>
+
+<main>
+    <!-- Секция ИСТОРИЯ (исправлены пути к изображениям, добавлены alt и современная структура) -->
+    <section id="story" class="active">
+        <h2>История НИУ РАНХиГС: от истоков к лидерству</h2>
+        <div class="story-text">
+            <p>История создания и развития Нижегородского института управления начинается в послевоенные годы и насчитывает несколько этапов, прошедших через значительные изменения и преобразования. Первое значимое образование в этом направлении было создано в 1943 году — Горьковская партийная школа при Областном комитете ВКП(б). Это учебное заведение было задумано для подготовки партийных кадров и повышения квалификации.</p>
+            <p><strong>2 августа 1946 года</strong> школа преобразована в Горьковскую областную партийную школу, получив статус областного учебного учреждения. В 1952 году — Горьковская высшая партийная школа, расширение программ.</p>
+        </div>
+        
+        <div class="img-grid">
+            <figure class="img-card">
+                <img src="https://placehold.co/600x400/e9cfbf/5f2a1c?text=Горьковская+партийная+школа+1940-е" alt="Историческое здание партийной школы">
+                <figcaption>⭐ Горьковская партийная школа, 1940-е гг.</figcaption>
+            </figure>
+            <figure class="img-card">
+                <img src="https://placehold.co/600x400/d9c7b8/8b3c28?text=Архивный+кадр+1957" alt="Студенты и преподаватели в 1957 году">
+                <figcaption>📸 Обучение управленческим кадрам, 1957 г.</figcaption>
+            </figure>
+        </div>
+
+        <div class="story-text">
+            <p>В 1956 году школа получила статус межобластной — Горьковская межобластная высшая партийная школа. Здесь готовили кадры для семи областей, четырёх автономных республик РСФСР и союзных республик СССР. К 1957 году подготовлено более 1500 выпускников.</p>
+            <h3>🌟 Новейшая история</h3>
+            <p>В 1991 году — Нижегородский социально-политический институт (НСПИ), затем Волго-Вятский кадровый центр, а с 1995 года — Волго-Вятская академия государственной службы (ВВАГС). 20 сентября 2010 года ВВАГС вошла в состав РАНХиГС при Президенте РФ, получив имя <strong>Нижегородский институт управления</strong>.</p>
+            <p>Сегодня институт — ведущая площадка подготовки управленцев, экономистов и юристов, сочетая богатое наследие с инновационными образовательными стандартами.</p>
+        </div>
+
+        <div class="img-grid">
+            <figure class="img-card">
+                <img src="https://placehold.co/600x400/b0a088/ffffff?text=Современный+кампус" alt="Современное здание НИУ РАНХиГС">
+                <figcaption>🏛 Современный кампус Нижегородского института управления</figcaption>
+            </figure>
+            <figure class="img-card">
+                <img src="https://placehold.co/600x400/c2aa92/2b1b13?text=Выпускники+2025" alt="Торжественное вручение дипломов">
+                <figcaption>🎓 Выпускники — гордость института</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <!-- Секция ПЕДАГОГИ (исправлены ошибки вложенных li, стильные карточки) -->
+    <section id="teachers">
+ <h2>👥 Наши педагоги — наставники и профессионалы</h2>
+        <div class="teachers-grid">
+            <div class="teacher-card">
+                <img src="https://placehold.co/400x500/e2cfbe/5e2f1f?text=Проф.+Елена+Вячеславовна" alt="Иванова Елена Вячеславовна">
+                <div class="teacher-info">
+                    <div class="teacher-name">Иванова Елена Вячеславовна</div>
+                    <div class="teacher-position">Профессор экономики</div>
+                    <div class="teacher-desc">Доктор экономических наук, автор более 120 научных трудов. Эксперт в области регионального развития.</div>
+                </div>
+            </div>
+            <div class="teacher-card">
+                <img src="https://placehold.co/400x500/dccbbc/653a28?text=Доц.+Ольга+Александровна" alt="Латина Ольга Александровна">
+                <div class="teacher-info">
+                    <div class="teacher-name">Латина Ольга Александровна</div>
+                    <div class="teacher-position">Преподаватель юриспруденции</div>
+                    <div class="teacher-desc">Кандидат юридических наук, руководитель студенческого юридического бюро, практикующий эксперт.</div>
+                </div>
+            </div>
+            <div class="teacher-card">
+                <img src="https://placehold.co/400x500/d6bb9e/7e412b?text=Доц.+Сергей+Викторович" alt="Иванов Сергей Викторович">
+                <div class="teacher-info">
+                    <div class="teacher-name">Иванов Сергей Викторович</div>
+                    <div class="teacher-position">Преподаватель юриспруденции</div>
+                    <div class="teacher-desc">Специалист по конституционному праву, почётный работник высшего образования.</div>
+                </div>
+            </div>
+            <div class="teacher-card">
+                <img src="https://placehold.co/400x500/cdaf91/944c30?text=Проф.+Полина+Александровна" alt="Тимонина Полина Александровна">
+                <div class="teacher-info">
+                    <div class="teacher-name">Тимонина Полина Александровна</div>
+                    <div class="teacher-position">Преподаватель юриспруденции</div>
+                    <div class="teacher-desc">Автор учебных пособий, организатор международных конференций по праву.</div>
+                </div>
+            </div>
+            <div class="teacher-card">
+                <img src="https://placehold.co/400x500/bd9c7c/603b28?text=Проф.+Елена+Владимировна" alt="Григорьева Елена Владимировна">
+                <div class="teacher-info">
+                    <div class="teacher-name">Григорьева Елена Владимировна</div>
+                    <div class="teacher-position">Преподаватель юриспруденции</div>
+                    <div class="teacher-desc">Кандидат наук, почётный профессор, ведёт практикумы по гражданскому праву.</div>
+                </div>
+            </div>
+        </div>
+        <p style="margin-top: 2rem; text-align: center; font-style: italic; color: #6e3e2c;">⭐ Гордость института — высококвалифицированный профессорско-преподавательский состав</p>
+    </section>
+
+    <!-- Секция ВИКТОРИНА (расширенный функционал, несколько вопросов, подсчет баллов) -->
+    <section id="quiz">
+        <h2>📚 Викторина: проверь свои знания об институте</h2>
+        <div class="quiz-container">
+            <div id="quizQuestions"></div>
+            <div class="quiz-score" id="quizScoreBlock">
+                🧠 Ваш результат: <span id="scoreValue">0</span> / <span id="totalQuestionsCount">0</span>
+            </div>
+            <button id="resetQuizBtn" style="background:#aa1805; border:none; color:white; padding:0.6rem 1.5rem; border-radius:40px; margin-top:1rem; cursor:pointer; font-weight:bold; transition:0.2s;">🔄 Сбросить викторину</button>
+        </div>
+    </section>
+</main>
+
+<footer>
+    © 2026 80 лет НИУ РАНХиГС — Нижегородский институт управления. С любовью к традициям и будущему.
+</footer>
+
+<script>
+    // ---------- ПЕРЕКЛЮЧЕНИЕ СЕКЦИЙ (современное) ----------
+    function showSection(sectionId) {
+        const sections = document.
+ querySelectorAll('main section');
+        sections.forEach(sec => {
+            sec.classList.remove('active');
+        });
+        const activeSection = document.getElementById(sectionId);
+        if (activeSection) activeSection.classList.add('active');
+        
+        // сохраняем в sessionStorage для удобства
+        sessionStorage.setItem('activeTab', sectionId);
+    }
+
+    // обработка кнопок навигации
+    const navBtns = document.querySelectorAll('.nav-btn');
+    navBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const section = btn.getAttribute('data-section');
+            if (section) showSection(section);
+        });
+    });
+
+    // восстановление активной вкладки после перезагрузки
+    const savedTab = sessionStorage.getItem('activeTab');
+    if (savedTab && document.getElementById(savedTab)) {
+        showSection(savedTab);
+    } else {
+        // по умолчанию история активна
+        showSection('story');
+    }
+
+    // ---------- ВИКТОРИНА (полноценная, с несколькими вопросами, фикс багов) ----------
+    const quizData = [
+        {
+            question: "Какая дата считается временем основания действующего Нижегородского института управления РАНХиГС (как ключевой этап вхождения в структуру Академии)?",
+            options: ["20 сентября 2010 года", "2 августа 1946 года", "1991 год", "2015 год"],
+            correct: "20 сентября 2010 года"
+        },
+        {
+            question: "Как называлось учебное заведение в 1956 году?",
+            options: ["Горьковская областная партийная школа", "Горьковская межобластная высшая партийная школа", "Нижегородский социально-политический институт", "Волго-Вятская академия госслужбы"],
+            correct: "Горьковская межобластная высшая партийная школа"
+        },
+        {
+            question: "В каком году ВВАГС вошла в состав РАНХиГС?",
+            options: ["2008", "2010", "2012", "2005"],
+            correct: "2010"
+        },
+        {
+            question: "Кто из преподавателей является профессором экономики?",
+            options: ["Иванова Елена Вячеславовна", "Латина Ольга Александровна", "Тимонина Полина Александровна", "Григорьева Елена Владимировна"],
+            correct: "Иванова Елена Вячеславовна"
+        }
+    ];
+
+    let userAnswers = new Array(quizData.length).fill(null);
+    let quizRendered = false;
+
+    function renderQuiz() {
+        const container = document.getElementById('quizQuestions');
+        if (!container) return;
+        container.innerHTML = '';
+        
+        quizData.forEach((item, idx) => {
+            const questionDiv = document.createElement('div');
+            questionDiv.className = 'quiz-question';
+            questionDiv.setAttribute('data-qidx', idx);
+            
+            const questionText = document.createElement('p');
+            questionText.innerHTML = `<strong>${idx+1}. ${item.question}</strong>`;
+            questionDiv.appendChild(questionText);
+            
+            const btnsDiv = document.createElement('div');
+            btnsDiv.className = 'quiz-buttons';
+            
+            item.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-btn';
+                btn.textContent = opt;
+                btn.addEventListener('click', (e) => {
+                    // сохраняем ответ
+                    userAnswers[idx] = opt;
+                    // обновляем визуально активные кнопки
+                    updateActiveStyles(questionDiv, opt);
+                    // обновляем фидбек
+                    updateFeedback(questionDiv, idx);
+                    updateTotalScore();
+                });
+                btnsDiv.appendChild(btn);
+            });
+            
+            questionDiv.appendChild(btnsDiv);
+            
+            // фидбек зона
+            const feedbackSpan = document.createElement('div');
+            feedbackSpan.className = 'quiz-feedback';
+            feedbackSpan.id = `feedback-${idx}`;
+            questionDiv.appendChild(feedbackSpan);
+            
+            container.
+ appendChild(questionDiv);
+        });
+        
+        updateTotalScore();
+        syncStylesFromAnswers();
+    }
+    
+    function updateActiveStyles(questionDiv, selectedOpt) {
+        const btns = questionDiv.querySelectorAll('.quiz-btn');
+        btns.forEach(btn => {
+            if (btn.textContent === selectedOpt) {
+                btn.style.background = '#aa1805';
+                btn.style.color = 'white';
+                btn.style.border = 'none';
+            } else {
+                btn.style.background = '#f0e4db';
+                btn.style.color = '#3b2a21';
+            }
+        });
+    }
+    
+    function updateFeedback(questionDiv, idx) {
+        const feedbackDiv = document.getElementById(`feedback-${idx}`);
+        if (!feedbackDiv) return;
+        const selected = userAnswers[idx];
+        if (!selected) {
+            feedbackDiv.innerHTML = '❓ Ответ не выбран';
+            feedbackDiv.style.color = '#ad7a5c';
+            return;
+        }
+        const isCorrect = (selected === quizData[idx].correct);
+        if (isCorrect) {
+            feedbackDiv.innerHTML = '✅ Верно! Отлично.';
+            feedbackDiv.style.color = '#1f7840';
+        } else {
+            feedbackDiv.innerHTML = `❌ Неправильно. Правильный ответ: ${quizData[idx].correct}`;
+            feedbackDiv.style.color = '#bc4e2c';
+        }
+    }
+    
+    function updateTotalScore() {
+        let correctCount = 0;
+        for (let i = 0; i < quizData.length; i++) {
+            if (userAnswers[i] && userAnswers[i] === quizData[i].correct) {
+                correctCount++;
+            }
+        }
+        const scoreSpan = document.getElementById('scoreValue');
+        const totalSpan = document.getElementById('totalQuestionsCount');
+        if (scoreSpan) scoreSpan.textContent = correctCount;
+        if (totalSpan) totalSpan.textContent = quizData.length;
+        
+        // дополнительно показываем сообщение, если всё верно
+        const scoreBlock = document.getElementById('quizScoreBlock');
+        if (correctCount === quizData.length && quizData.length > 0 && userAnswers.every(a => a !== null)) {
+            if (!scoreBlock.querySelector('.perfect-badge')) {
+                const perfectMsg = document.createElement('div');
+                perfectMsg.className = 'perfect-badge';
+                perfectMsg.style.marginTop = '8px';
+                perfectMsg.style.fontSize = '0.9rem';
+                perfectMsg.style.fontWeight = '500';
+                perfectMsg.style.color = '#aa1805';
+                perfectMsg.innerHTML = '🏆 Поздравляем! Вы великолепно знаете историю института!';
+                scoreBlock.appendChild(perfectMsg);
+            }
+        } else {
+            const existing = scoreBlock.querySelector('.perfect-badge');
+            if (existing) existing.remove();
+        }
+    }
+    
+    function syncStylesFromAnswers() {
+        // восстановить стили кнопок и фидбек после возможного сброса
+        for (let i = 0; i < quizData.length; i++) {
+            const questionDiv = document.querySelector(`.quiz-question[data-qidx="${i}"]`);
+            if (questionDiv && userAnswers[i]) {
+                updateActiveStyles(questionDiv, userAnswers[i]);
+                updateFeedback(questionDiv, i);
+            } else if (questionDiv && !userAnswers[i]) {
+                // сброс стилей кнопок
+                const btns = questionDiv.querySelectorAll('.quiz-btn');
+                btns.forEach(btn => {
+                    btn.style.background = '#f0e4db';
+                    btn.style.color = '#3b2a21';
+                });
+                const feedbackDiv = document.getElementById(`feedback-${i}`);
+                if (feedbackDiv) feedbackDiv.innerHTML = '';
+            }
+        }
+    }
+    
+    function resetQuiz() {
+        userAnswers = new Array(quizData.length).fill(null);
+        // перерисовать UI (сброс состояний)
+        const container = document.getElementById('quizQuestions');
+        if (container) {
+            // обновляем все фидбеки и стили
+            for (let i = 0; i < quizData.length; i++) {
+ const questionDiv = document.querySelector(`.quiz-question[data-qidx="${i}"]`);
+                if (questionDiv) {
+                    const btns = questionDiv.querySelectorAll('.quiz-btn');
+                    btns.forEach(btn => {
+                        btn.style.background = '#f0e4db';
+                        btn.style.color = '#3b2a21';
+                    });
+                    const feedbackDiv = document.getElementById(`feedback-${i}`);
+                    if (feedbackDiv) feedbackDiv.innerHTML = '';
+                }
+            }
+        }
+        updateTotalScore();
+        // удалить возможный бейдж совершенства
+        const scoreBlock = document.getElementById('quizScoreBlock');
+        if (scoreBlock) {
+            const badge = scoreBlock.querySelector('.perfect-badge');
+            if (badge) badge.remove();
+        }
+        // дополнительно обновляем счетчик
+        const scoreSpan = document.getElementById('scoreValue');
+        if (scoreSpan) scoreSpan.textContent = '0';
+    }
+    
+    // инициализация викторины при загрузке
+    function initQuiz() {
+        if (!quizRendered) {
+            renderQuiz();
+            quizRendered = true;
+        }
+        const resetBtn = document.getElementById('resetQuizBtn');
+        if (resetBtn) {
+            resetBtn.addEventListener('click', resetQuiz);
+        }
+    }
+    
+    // Вызываем инициализацию при загрузке DOM, а также при показе секции (если ещё не рендерилась)
+    document.addEventListener('DOMContentLoaded', () => {
+        initQuiz();
+        // чтобы обновить стили при переключении вкладок (если викторина не была активна)
+        const observer = new MutationObserver(() => {
+            const quizSection = document.getElementById('quiz');
+            if (quizSection && quizSection.classList.contains('active') && !quizRendered) {
+                initQuiz();
+            }
+        });
+        observer.observe(document.getElementById('quiz'), { attributes: true, attributeFilter: ['class'] });
+        if (document.getElementById('quiz').classList.contains('active')) initQuiz();
+    });
+    
+    // дополнительный фикс для ссылок на изображения: используем современные плейсхолдеры, 
+    // чтобы сайт работал без локальных файлов, но стильно.
+    // Все пути из оригинального кода (c:\РАНХиГС\...) были заменены на рабочие плейсхолдеры,
+    // чтобы сайт открывался без ошибок консоли и выглядел профессионально.
+    // При желании пользователь может заменить src на реальные изображения.
+</script>
+</body>
+</html>
