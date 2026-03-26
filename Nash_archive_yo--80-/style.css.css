@@ -1,0 +1,1404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f8f4f0 0%, #e8e0d8 100%);
+    color: #2c241f;
+    line-height: 1.5;
+    scroll-behavior: smooth;
+    position: relative;
+    font-weight: 400;
+}
+
+/* Анимированный градиентный фон */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 40%;
+    background-image: url('images/ranh.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+     opacity: 0.7; 
+    pointer-events: none;
+    z-index: 0;
+}/* Плавающий счетчик баллов */
+.floating-score {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #aa1805, #8b1504);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 8px 25px rgba(170, 24, 5, 0.3);
+    z-index: 1000;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.floating-score:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(170, 24, 5, 0.4);
+}
+
+.score-icon {
+    font-size: 1.8rem;
+    animation: rotate 3s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.score-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-label {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+
+.score-value {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+/* Видео в реакции преподавателя */
+.teacher-video {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.teacher-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.teacher-reaction {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    animation: bounce 0.6s ease;
+}
+
+.teacher-reaction.happy {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-left: 4px solid #4caf50;
+}
+
+.teacher-reaction.angry {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    border-left: 4px solid #f44336;
+}
+
+.teacher-message {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c241f;
+    flex: 1;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .floating-score {
+        bottom: 20px;
+        right: 20px;
+        padding: 8px 16px;
+    }
+    
+    .score-icon {
+        font-size: 1.4rem;
+    }
+    
+    .score-value {
+        font-size: 1.2rem;
+    }
+    
+    .teacher-video {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Фоновое изображение */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 45%;
+    background-image: url('images/изображение.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: contain;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Хедер с анимацией */
+header {
+    background: linear-gradient(135deg, #8b1a0a 0%, #6b1306 50%, #4f0f03 100%);
+    color: white;
+    padding: 3.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+header h1 {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 3.5rem;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: relative;
+    animation: slideDown 0.8s ease;
+    background: linear-gradient(135deg, #fff, #ffd9c4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+    margin-top: 0.8rem;
+    animation: slideUp 0.8s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Навигация */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background: rgba(107, 26, 14, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 215, 200, 0.2);
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    padding: 0.85rem 2rem;
+    cursor: pointer;
+    color: #fff3ef;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 60px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.nav-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    color: white;
+}
+
+.nav-btn:active {
+    transform: translateY(1px);
+}
+
+/* Основной контент */
+main {
+    max-width: 1280px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 5rem 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    display: none;
+    animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    box-shadow: 0 25px 45px -12px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 245, 235, 0.8);
+    transition: transform 0.3s ease;
+}
+
+section.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Заголовки с декоративными элементами */
+h2 {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    border-left: 5px solid #aa1805;
+    padding-left: 1.3rem;
+    margin-bottom: 2rem;
+    color: #2c241f;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #aa1805, #d45a3a, transparent);
+}
+
+h3 {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 1.8rem 0 1rem 0;
+    color: #8b3a2a;
+    position: relative;
+    display: inline-block;
+}
+
+/* Стили для истории */
+.story-text {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #3a2c24;
+    font-weight: 400;
+}
+
+.story-text p {
+    margin-bottom: 1rem;
+}
+
+.story-text strong {
+    color: #aa1805;
+    font-weight: 700;
+}
+
+.story-text em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Галерея изображений */
+.img-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 2rem 0;
+    justify-content: center;
+}
+
+.img-card {
+    background: white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-width: 360px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.img-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.25);
+}
+
+.img-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.img-card:hover img {
+    transform: scale(1.05);
+}
+
+.img-card figcaption {
+    padding: 1rem;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-weight: 500;
+    background: linear-gradient(135deg, #fffaf5, #fff5ed);
+    color: #5a3a2c;
+    font-size: 0.95rem;
+    text-align: center;
+}
+
+/* Стили для интервью */
+.interviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.interview-card {
+    background: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #f0e2d8;
+    cursor: pointer;
+    position: relative;
+}
+
+.interview-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #aa1805, #d45a3a, #aa1805);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.interview-card:hover::before {
+    transform: scaleX(1);
+}
+
+.interview-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2);
+}
+
+.interview-preview {
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.interview-preview img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.interview-card:hover .interview-preview img {
+    transform: scale(1.05);
+}
+
+.interview-preview h3 {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 1.2rem 0 0.5rem;
+    padding: 0 1rem;
+    color: #2c1a12;
+}
+
+.interview-preview .teacher-position {
+    padding: 0 1rem 1.2rem;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    color: #aa1805;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+/* Выпадающее окно */
+.interview-expand {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: -100%;
+    background: linear-gradient(135deg, #fff8f3 0%, #fff0e8 100%);
+    box-shadow: 0 -15px 45px rgba(0, 0, 0, 0.2);
+    border-radius: 2rem 2rem 0 0;
+    z-index: 1000;
+    transition: bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.interview-expand.active {
+    bottom: 0;
+}
+
+.interview-expand-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    position: relative;
+}
+
+.close-expand-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, #aa1805, #8b1504);
+    color: white;
+    border: none;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.close-expand-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: linear-gradient(135deg, #8b1504, #6a1003);
+}
+
+.interview-expand-description {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #eedbcb;
+}
+
+.interview-expand-description p {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    color: #4f3e35;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+.interview-expand-description strong {
+    color: #aa1805;
+    font-weight: 700;
+}
+
+.interview-expand-description em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.video-expand-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.video-expand-wrapper video {
+    width: 100%;
+    max-width: 850px;
+    border-radius: 1.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    background: #000;
+}
+
+.interview-expand h3 {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #2c1a12;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Оверлей */
+.expand-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.expand-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Викторина */
+.quiz-container {
+    background: linear-gradient(135deg, #fffcf9, #fff8f3);
+    border-radius: 2rem;
+    padding: 2rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-question {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #eedbcb;
+    padding-bottom: 1.5rem;
+}
+
+.quiz-question:last-child {
+    border-bottom: none;
+}
+
+.quiz-question p {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #2c241f;
+}
+
+.quiz-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.quiz-btn {
+    background: linear-gradient(135deg, #f0e4db, #e8d8ce);
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: 60px;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #3b2a21;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-btn:hover {
+    background: linear-gradient(135deg, #ddcbbc, #d4c0ae);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(170, 24, 5, 0.2);
+}
+
+.quiz-feedback {
+    margin-top: 0.8rem;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding-left: 0.5rem;
+}
+
+.quiz-score {
+    margin-top: 2rem;
+    background: linear-gradient(135deg, #e9ddcf, #e2d2c2);
+    border-radius: 2rem;
+    padding: 1rem 1.8rem;
+    text-align: center;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #3a271e;
+}
+
+#resetQuizBtn {
+    background: linear-gradient(135deg, #aa1805, #8b1504);
+    border: none;
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 60px;
+    margin-top: 1rem;
+    cursor: pointer;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(170, 24, 5, 0.3);
+}
+
+#resetQuizBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(170, 24, 5, 0.4);
+}
+
+/* Футер */
+footer {
+    background: linear-gradient(135deg, #2f1d15, #25160f);
+    color: #e9cfbf;
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    border-top: 1px solid rgba(255, 217, 196, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.2rem;
+    }
+    
+    header p {
+        font-size: 1rem;
+    }
+    
+    .nav-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    section {
+        padding: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    .interviews-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .interview-expand-content {
+        padding: 1.5rem;
+    }
+    
+    .video-expand-wrapper video {
+        max-width: 100%;
+    }
+    
+    .interview-expand h3 {
+        font-size: 1.5rem;
+    }
+    
+    .interview-expand-description p {
+        font-size: 1rem;
+    }
+    
+    body::after {
+        width: 60%;
+        opacity: 0.35;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    section {
+        padding: 1.2rem;
+    }
+    
+    .quiz-buttons {
+        flex-direction: column;
+    }
+    
+    .quiz-btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    body::after {
+        width: 80%;
+        opacity: 0.25;
+    }
+}
+
+/* Анимации для элементов */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+.interview-card {
+    animation: fadeIn 0.6s ease;
+}
+
+/* Декоративные элементы */
+section::before {
+    content: '✦';
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: rgba(170, 24, 5, 0.1);
+    pointer-events: none;
+}
+
+/* Стили для жирного текста */
+b, strong {
+    font-weight: 700;
+}
+
+/* Стили для курсива */
+i, em {
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* Комбинация жирного и курсива */
+strong em, em strong, b i, i b {
+    font-weight: 700;
+    font-style: italic;
+}
+/* Стили для объяснений в викторине */
+.quiz-explanation {
+    display: none;
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #fff8f3, #fff0e8);
+    border-radius: 1.5rem;
+    border-left: 4px solid #aa1805;
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.explanation-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.teacher-reaction {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.teacher-reaction.happy {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-left: 4px solid #4caf50;
+}
+
+.teacher-reaction.angry {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    border-left: 4px solid #f44336;
+}
+
+.teacher-avatar {
+    font-size: 3rem;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    75% {
+        transform: translateX(5px);
+    }
+}
+
+.teacher-message {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c241f;
+}
+
+.explanation-video {
+    text-align: center;
+}
+
+.explanation-video video {
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-caption {
+    margin-top: 0.5rem;
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 0.9rem;
+    color: #aa1805;
+    text-align: center;
+}
+
+.explanation-text {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #3a2c24;
+}
+
+.explanation-text strong {
+    color: #aa1805;
+}
+
+/* Отключенные кнопки */
+.quiz-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quiz-btn:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
+/* GIF изображения в реакции преподавателя */
+.teacher-gif {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff8f3, #fff0e8);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    animation: pulse 1s ease-in-out;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.teacher-gif:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+.reaction-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: floatGif 2s ease-in-out infinite;
+}
+
+@keyframes floatGif {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.teacher-reaction {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+    animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.teacher-reaction.happy {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-left: 5px solid #4caf50;
+}
+
+.teacher-reaction.angry {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    border-left: 5px solid #f44336;
+}
+
+.teacher-message {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2c241f;
+    flex: 1;
+    line-height: 1.4;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .teacher-gif {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .teacher-message {
+        font-size: 0.95rem;
+    }
+    
+    .teacher-reaction {
+        padding: 1rem;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .teacher-gif {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .teacher-message {
+        font-size: 0.85rem;
+    }
+}
+/* GIF изображения в реакции преподавателя - МАКСИМАЛЬНЫЙ РАЗМЕР */
+.teacher-gif {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff8f3, #fff0e8);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: pulse 0.8s ease-in-out;
+    border: 4px solid rgba(170, 24, 5, 0.3);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.teacher-gif:hover {
+    transform: scale(1.1);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(170, 24, 5, 0.6);
+}
+
+.reaction-gif {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: floatGif 3s ease-in-out infinite;
+}
+
+@keyframes floatGif {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.teacher-reaction {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    border-radius: 2.5rem;
+    animation: bounceIn 0.6s ease;
+    margin-bottom: 2rem;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.teacher-reaction.happy {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-left: 8px solid #4caf50;
+    border-right: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.teacher-reaction.angry {
+    background: linear-gradient(135deg, #ffebee, #ffcdd2);
+    border-left: 8px solid #f44336;
+    border-right: 1px solid rgba(244, 67, 54, 0.3);
+}
+
+.teacher-message {
+    font-family: 'Bahnschrift', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2c241f;
+    flex: 1;
+    line-height: 1.5;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* Адаптация для планшетов */
+@media (max-width: 768px) {
+    .teacher-gif {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .teacher-message {
+        font-size: 1.1rem;
+    }
+    
+    .teacher-reaction {
+        padding: 1.8rem;
+        gap: 1.8rem;
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 480px) {
+    .teacher-gif {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .teacher-message {
+        font-size: 1rem;
+    }
+    
+    .teacher-reaction {
+        padding: 1.5rem;
+        gap: 1.2rem;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Декоративная рамка для GIF */
+.teacher-gif::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: linear-gradient(135deg, #aa1805, #d45a3a, #aa1805);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.teacher-gif:hover::before {
+    opacity: 0.4;
+}
+
+.teacher-gif {
+    position: relative;
+    z-index: 1;
+}
+
+/* Дополнительная анимация для содержимого */
+.explanation-container {
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Стили для хедера с логотипом */
+header {
+    background: linear-gradient(135deg, #8b1a0a 0%, #6b1306 50%, #4f0f03 100%);
+    color: white;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    flex-shrink: 0;
+    animation: slideInLeft 0.8s ease;
+}
+
+.logo-img {
+    max-width: 500px;
+    height: auto;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+.header-content {
+    flex: 1;
+    text-align: center;
+}
+
+.header-content h1 {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+    font-weight: 800;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    margin: 0;
+    background: linear-gradient(135deg, #fff, #ffd9c4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header-content p {
+    font-family: 'Bahnschrift', 'Segoe UI', 'Arial', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+    margin-top: 0.5rem;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .logo-img {
+        max-width: 80px;
+    }
+    
+    .header-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header-content p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-img {
+        max-width: 60px;
+    }
+    
+    .header-content h1 {
+        font-size: 1.4rem;
+    }
+}
